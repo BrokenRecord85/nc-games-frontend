@@ -14,6 +14,13 @@ img {
   height: 20vh;
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .App {
   text-align: center;
@@ -25,12 +32,7 @@ img {
 }
 
 
-.header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .navbar {
   display: flex;
@@ -53,6 +55,17 @@ img {
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 5vh;
+}
+
+.review-card {
+  background-color: rgb(55, 55, 174);
+  border-radius: 10%;
+}
+
+
+#category-tag {
+  text-transform: capitalize;
 }
 
 
