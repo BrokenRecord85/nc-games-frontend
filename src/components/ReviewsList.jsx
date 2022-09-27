@@ -1,19 +1,31 @@
 import React, { useEffect, useState } from 'react'
-import { getReviews } from '../utils/api'
+import { getReviews} from '../utils/api'
 import {Link} from 'react-router-dom'
+import Categories from './Categories'
 
-const ReviewsList = () => {
+
+
+const ReviewsList = ({loading, setLoading}) => {
   const [reviews, setReviews] = useState([])
+  
 
   useEffect(() => {
+    setLoading(true)
     getReviews().then(({reviews}) => {
       setReviews(reviews)
+      setLoading(false)
     })
   }, [])
+
+  if(loading) {
+    return <h1>Loading...</h1>
+  }
+
+  else {
   
-  console.log(reviews)
   return (
     <div>
+      <Categories />
       <ul className='gallery'>
         {reviews.map((review) => {
           return (
@@ -27,7 +39,7 @@ const ReviewsList = () => {
               <h4>Review : Click here to read</h4>
               <p>Owner: {review.owner}</p>
               <p>Designer: {review.designer}</p>
-              <Link to='/reviews/categories/:category'>
+              <Link to={`/reviews/categories/${review.category}`}>
                   <p id='category-tag'>category: {review.category}</p>
               </Link>
               
@@ -37,6 +49,7 @@ const ReviewsList = () => {
       </ul>
     </div>
   )
+  }
 }
 
 export default ReviewsList
