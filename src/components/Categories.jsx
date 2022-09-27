@@ -8,13 +8,17 @@ const Categories = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const navigate = useNavigate()
   const params = useParams()
-  console.log(params.category)
+
 
   useEffect(() => {
     getCategories().then(({categories}) => {
         setCategories(categories)
     })
   }, [])
+
+  useEffect(() => {
+    setSelectedCategory(params.category)
+  }, [params.category])
 
   const handleChange = (e) => {
     setSelectedCategory(e.target.value)
@@ -29,13 +33,13 @@ const Categories = () => {
   
   return (
     <select className='select-cat' onChange={handleChange} value={selectedCategory}  name="categoriesList" id="categories-list">
-        <option value='' defaultValue>Select category: </option>
+        <option value='' disabled defaultValue>Select category: </option>
         <option value="all_categories">All Categories</option>
-        {categories.map((category, index, array) => {
-          //console.log(array)
+        {categories.map((category, index) => {
+          
             return (
                 <option  key={index} value={category.slug}>
-                    {category.slug}
+                    {category.slug[0].toUpperCase() + category.slug.slice(1)}
                 </option>
     
             )
