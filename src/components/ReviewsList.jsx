@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getReviews} from '../utils/api'
 import {Link} from 'react-router-dom'
+import Categories from './Categories'
 
 const ReviewsList = ({loading, setLoading}) => {
   const [reviews, setReviews] = useState([])
@@ -22,6 +23,7 @@ const ReviewsList = ({loading, setLoading}) => {
   
   return (
     <div>
+      <Categories/>
       <ul className='gallery'>
         {reviews.map((review) => {
           return (
