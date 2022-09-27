@@ -5,7 +5,8 @@ import Categories from './Categories'
 
 const Nav = () => {
   return (
-    <div>
+    <div className='main-nav'>
+      <h2>NC-GAMES</h2>
       <nav className='navbar'>
         <Link to='/reviews'>
           <h2>Reviews</h2>

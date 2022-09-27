@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {useParams, Link} from 'react-router-dom'
 import { getReviews } from '../utils/api'
-import Categories from './Categories'
+//import Categories from './Categories'
 
 
 const ReviewsByCategoriesList = ({loading, setLoading}) => {
@@ -24,8 +24,8 @@ const ReviewsByCategoriesList = ({loading, setLoading}) => {
 
   return (
     <div>
-      <Categories />
-      <h2>{category}</h2>
+      
+      <h2>{category[0].toUpperCase() + category.slice(1)}</h2>
       <ul className='gallery'>
           {reviewsByCategory.map((reviewByCategory) => {
             const {review_id, title, review_img_url, owner, designer} = reviewByCategory
