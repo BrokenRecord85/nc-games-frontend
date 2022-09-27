@@ -1,4 +1,9 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;1,300;1,700&display=swap');
+
+* {
+  font-family: 'Lato', sans-serif
+}
 
 a {
   text-decoration: none;
@@ -64,6 +69,15 @@ header {
 .review-card {
   background-color: rgb(55, 55, 174);
   border-radius: 10%;
+}
+
+.select-cat {
+  width: 20rem;
+  height: 2rem;
+}
+
+.select-cat option {
+  text-transform: capitalize;
 }
 
 

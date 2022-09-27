@@ -13,8 +13,8 @@ function App() {
   const [loading, setLoading] = useState(false)
   return (
     <div className="App">
-      <Header />
       <Nav />
+      <Header />
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/reviews' element={<ReviewsList loading={loading} setLoading={setLoading}/>}></Route>

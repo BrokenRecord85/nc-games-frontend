@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import {useParams, Link} from 'react-router-dom'
 import { getReviews } from '../utils/api'
+import Categories from './Categories'
+
 
 const ReviewsByCategoriesList = ({loading, setLoading}) => {
   const [reviewsByCategory, setReviewsByCategory] = useState([])
-  
   const {category} = useParams()
   useEffect(() => {
     setLoading(true)
@@ -12,7 +13,7 @@ const ReviewsByCategoriesList = ({loading, setLoading}) => {
       setReviewsByCategory(reviews)
       setLoading(false)
     })
-  }, [])
+  }, [category])
   
   if(loading) {
     return <h1>Loading...</h1>
@@ -23,6 +24,8 @@ const ReviewsByCategoriesList = ({loading, setLoading}) => {
 
   return (
     <div>
+      <Categories />
+      <h2>{category}</h2>
       <ul className='gallery'>
           {reviewsByCategory.map((reviewByCategory) => {
             const {review_id, title, review_img_url, owner, designer} = reviewByCategory
