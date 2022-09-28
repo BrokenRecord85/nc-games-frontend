@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import Categories from './Categories'
+
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
       <Link to='/'>
         <h1>We review them so you don't have to!!</h1>
       </Link>
-      <Categories />
+      
     </header>
   )
 }

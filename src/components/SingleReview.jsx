@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
-import axios from 'axios'
+import { getReviewByID } from '../utils/api'
 
 const SingleReview = () => {
    const [review, setReview] = useState({})
    const {review_id} = useParams()
-   
-
+  
+ 
    useEffect(() => {
-        axios.get(`https://pawel-game-api.herokuapp.com/api/reviews/${review_id}`)
-        .then(({data}) => {
-            setReview(data.review)
+        getReviewByID(review_id)
+        .then(({review}) => {
+          
+            setReview(review)
         })
    }, [review_id])
 
-   
+
   return (
     <div className='single-card'>
         <img src={review.review_img_url} alt="" />

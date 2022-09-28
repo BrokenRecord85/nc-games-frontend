@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getReviews} from '../utils/api'
 import {Link} from 'react-router-dom'
+import Categories from './Categories'
 //import Categories from './Categories'
 
 
@@ -25,7 +26,7 @@ const ReviewsList = ({loading, setLoading}) => {
   
   return (
     <div>
-  
+      <Categories />
       <ul className='gallery'>
         {reviews.map((review) => {
           return (
@@ -36,7 +37,11 @@ const ReviewsList = ({loading, setLoading}) => {
               <Link to={`/reviews/${review.review_id}`}>
               <img src={review.review_img_url} alt={review.title} />
               </Link>
-              <h4>Review : Click here to read</h4>
+              <Link to={`/reviews/${review.review_id}`}>
+                  <h4>Read review</h4>
+                </Link> 
+              
+              
               <p>Owner: {review.owner}</p>
               <p>Designer: {review.designer}</p>
               <Link to={`/reviews/categories/${review.category}`}>

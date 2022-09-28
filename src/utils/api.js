@@ -11,6 +11,12 @@ export const getReviews = (category) => {
     })
 }
 
+export const getReviewByID = (review_id) => {
+    return gamesApi.get(`/reviews/${review_id}`).then((res) => {
+        return res.data
+    })
+}
+
 export const getUsers = () => {
     return gamesApi.get('/users').then((res) => {
         return res.data
