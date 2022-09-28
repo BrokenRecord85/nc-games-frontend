@@ -30,10 +30,10 @@ const ReviewsList = ({loading, setLoading}) => {
         {reviews.map((review) => {
           return (
             <li className='review-card' key={review.review_id}>
-              <Link to='/reviews/:review_id'>
+              <Link to={`/reviews/${review.review_id}`}>
                 <h3>{review.title}</h3>
               </Link>
-              <Link to='/reviews/:review_id'>
+              <Link to={`/reviews/${review.review_id}`}>
               <img src={review.review_img_url} alt={review.title} />
               </Link>
               <h4>Review : Click here to read</h4>

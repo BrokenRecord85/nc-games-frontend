@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {useParams, Link} from 'react-router-dom'
 import { getReviews } from '../utils/api'
-//import Categories from './Categories'
+
 
 
 const ReviewsByCategoriesList = ({loading, setLoading}) => {
