@@ -68,14 +68,16 @@ header {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 5vh;
+  align-self: center;
 }
 
 
 
 
 .review-card {
-  background-color: rgb(55, 55, 174);
+  
   border-radius: 10%;
+  border: 1px solid black;
 }
 
 .select-cat {
@@ -87,9 +89,40 @@ header {
   text-transform: capitalize;
 }
 
+.single-card {
+  padding: 5vh;
+  margin: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  border: 1px solid black;
+  max-width: 50rem;
+  border-radius: 5%;
+}
+
+.info {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 30rem;
+}
+
+.info p {
+  text-align:left;
+}
+
 
 #category-tag {
   text-transform: capitalize;
+}
+
+#votes-btn {
+  width: 10rem;
+  height: 5rem;
 }
 
 
