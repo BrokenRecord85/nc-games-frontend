@@ -115,15 +115,18 @@ header {
   text-align:left;
 }
 
+.voting-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 
 #category-tag {
   text-transform: capitalize;
 }
 
-#votes-btn {
-  width: 10rem;
-  height: 5rem;
-}
 
 
 
