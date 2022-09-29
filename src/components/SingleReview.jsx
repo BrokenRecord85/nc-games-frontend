@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 import { getReviewByID } from '../utils/api'
+import Votes from './Votes'
 
 const SingleReview = () => {
    const [review, setReview] = useState({})
@@ -23,7 +24,7 @@ const SingleReview = () => {
             <h3>{review.title}</h3>
             <h4>Author: {review.owner}</h4>
             <p>{review.review_body}</p>
-            <button id='votes-btn'>Votes: {review.votes}</button>
+            <Votes votes={review.votes} review_id={review.review_id}/>
         </div>
 
     </div>

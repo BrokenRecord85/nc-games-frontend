@@ -28,3 +28,7 @@ export const getCategories = () => {
         return res.data
     })
 }
+
+export const castVote = (review_id, reqBody) => {
+    return gamesApi.patch(`/reviews/${review_id}`, reqBody)
+}

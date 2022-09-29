@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;1,300;1,700&display=swap');
 
 * {
-  font-family: 'Lato', sans-serif
+  font-family: 'Lato', sans-serif;
+  color: rgb(78, 6, 6);
+  
 }
 
 a {
@@ -24,6 +26,13 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgb(78, 6, 6);
+  width: 100%;
+  
+}
+
+header h1 {
+  color: white;
 }
 
 
@@ -33,6 +42,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1vh;
 
 }
 
@@ -55,6 +65,22 @@ header {
   
 }
 
+.dice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1vh;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5vh;
+}
+
 
 .main {
   margin: 20vh;
@@ -75,7 +101,7 @@ header {
 
 
 .review-card {
-  
+  width: auto;
   border-radius: 10%;
   border: 1px solid black;
 }
@@ -115,25 +141,104 @@ header {
   text-align:left;
 }
 
+.voting-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 
 #category-tag {
   text-transform: capitalize;
 }
 
-#votes-btn {
-  width: 10rem;
-  height: 5rem;
-}
 
 
 
 @media only screen and (max-width: 1000px) {
+
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header {
+    padding: 1vh;
+    margin: 1vh;
+  }
+
+  .App {
+    padding: 0;
+    margin: 0;
+  }
+
+  .main-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+    
+  }
+
+  .logo {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 3;   
+    justify-content: left;
+  }
+  .dice {
+    grid-row-start: 1;
+    grid-column-start: 3;
+    /* grid-column-end: 3; */
+    display: flex;
+    justify-content: center;
+  }
+  .navbar {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    justify-content: center;
+  
+  }
+
   .gallery {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5vh;
+  }
+
+  .single-card {
+    padding: 0;
+    margin: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    border: none;
+    
+    
   }
 }
 
