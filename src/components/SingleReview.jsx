@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 import { getReviewByID } from '../utils/api'
+import Comments from './Comments'
 import Votes from './Votes'
 
 const SingleReview = () => {
@@ -18,6 +19,7 @@ const SingleReview = () => {
 
 
   return (
+    <div className='review-main'>
     <div className='single-card'>
         <img src={review.review_img_url} alt="" />
         <div className='info'>
@@ -26,7 +28,9 @@ const SingleReview = () => {
             <p>{review.review_body}</p>
             <Votes votes={review.votes} review_id={review.review_id}/>
         </div>
-
+        
+    </div>
+    <Comments review_id={review.review_id}/>
     </div>
   )
 }
