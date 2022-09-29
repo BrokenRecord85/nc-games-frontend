@@ -35,7 +35,9 @@ const ReviewsByCategoriesList = ({loading, setLoading}) => {
                 <Link to={`/reviews/${review_id}`}>
                   <h3>{title}</h3>
                 </Link>
-                <Link to={`/reviews/${review_id}`}>
+                <Link to={`/reviews/${review_id}`
+              
+              }>
                 <img src={review_img_url} alt={title} />
                 </Link>
                 <h4>Review : Click here to read</h4>
