@@ -25,7 +25,7 @@ const ReviewsList = ({loading, setLoading}) => {
   else {
   
   return (
-    <div>
+    <main>
       <Categories />
       <ul className='gallery'>
         {reviews.map((review) => {
@@ -52,7 +52,7 @@ const ReviewsList = ({loading, setLoading}) => {
           )
         })}
       </ul>
-    </div>
+    </main>
   )
   }
 }

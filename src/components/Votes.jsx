@@ -27,13 +27,13 @@ const Votes = ({votes, review_id}) => {
     else {
       setCurrVotes(currVotes - 1)
       setHasVoted(false)
-    const reqBody = {
-        inc_votes: 1
-    }
-    castVote(review_id, reqBody)
-    .then(({data}) => {
-        return data
-    })
+      const reqBody = {
+          inc_votes: -1
+      }
+      castVote(review_id, reqBody)
+      .then(({data}) => {
+          return data
+      })
     }
     
   }
