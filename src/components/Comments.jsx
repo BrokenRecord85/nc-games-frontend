@@ -4,11 +4,11 @@ import {AiOutlineLike} from 'react-icons/ai'
 
 const Comments = ({review_id}) => {
   
-  console.log(review_id)
+  
   const [comments , setComments] = useState([])
   
   
-  console.log(comments)
+ 
   useEffect(() => {
     getComments(review_id)
     .then(({data}) => {
@@ -16,7 +16,7 @@ const Comments = ({review_id}) => {
       setComments(data.comments)
     })
   }, [review_id])
-  console.log(comments)
+  
 
   return (
     <div className='comments-container'>
