@@ -1,9 +1,16 @@
 import React from 'react'
+import {useContext} from 'react'
 import {Link} from 'react-router-dom'
-import Categories from './Categories'
 import {FaChessPawn, FaDiceFive, FaChessBoard} from 'react-icons/fa'
+import LoginContext from '../context/LoginProvider';
 
 const Nav = () => {
+  const { login,setLogin } = useContext(LoginContext)
+
+  const handleLogout = () => {
+      setLogin('')
+  }
+
   return (
     <div className='main-nav'>
       <div className='logo'>
@@ -26,7 +33,11 @@ const Nav = () => {
 
       <div className='dice'>
       <FaDiceFive size={29}/>
-      <h2>Log in</h2>
+      {!login ? 
+      <Link to='/login'>
+        <h2>Log in</h2> 
+      </Link> : <h2 id='logout' onClick={handleLogout}>{login} log out</h2>}
+     
       </div>
       
     </div>

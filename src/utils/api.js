@@ -36,3 +36,8 @@ export const castVote = (review_id, reqBody) => {
 export const getComments = (review_id) => {
     return gamesApi.get(`/reviews/${review_id}/comments`)
 }
+
+export const postComment =(newComment, review_id) => {
+    return gamesApi.post(`/reviews/${review_id}/comments`, newComment)
+}
+

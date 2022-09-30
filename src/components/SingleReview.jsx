@@ -4,20 +4,27 @@ import { getReviewByID } from '../utils/api'
 import Comments from './Comments'
 import Votes from './Votes'
 
-const SingleReview = () => {
+const SingleReview = ({loading, setLoading}) => {
    const [review, setReview] = useState({})
    const {review_id} = useParams()
   
  
    useEffect(() => {
+    setLoading(true)
         getReviewByID(review_id)
         .then(({review}) => {
           
             setReview(review)
+            setLoading(false)
         })
+        
    }, [review_id])
 
+  if(loading) {
+    return <h1>Loading...</h1>
+  }
 
+  else {
   return (
     <div className='review-main'>
     <div className='single-card'>
@@ -30,9 +37,10 @@ const SingleReview = () => {
         </div>
         
     </div>
-    <Comments review_id={review.review_id}/>
+    <Comments loading={loading} setLoading={setLoading} review_id={review.review_id}/>
     </div>
   )
+  }
 }
 
 export default SingleReview
