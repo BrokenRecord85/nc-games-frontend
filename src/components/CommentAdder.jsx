@@ -1,52 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { postComment } from '../utils/api';
+import LoginContext from '../context/LoginProvider';
+import {Link} from 'react-router-dom'
 
 
 export const CommentAdder = ({ setComments, comments, review_id }) => {
-    const [newComment, setNewComment] = useState({author: '', body: ''})
+	const { login,setLogin } = useContext(LoginContext)
+    const [newComment, setNewComment] = useState({author: login, body: ''})
+
 	
-	const validAuthors = comments.map((comment) => {
-		return comment.author
-	})
+
 
 	
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		
-		if (!validAuthors.includes(newComment.author)){
-			alert('Sign up or log in to comment')
-			setNewComment({author: '', body: ''})
-		}
-		else {
+		
+		
 			postComment(newComment, review_id)
 			.then(({data}) => {
 				setComments((currComments) => {
 					return [data.comments, ...currComments]
 				})
+				setNewComment({author: login, body: ''})
 				
 			})
-		}
+		
 
 		
         
     	
 	};
 
+	if (!login) {
+
+		return (
+			<Link to={'/login'}>
+				<button id='comment-btn'>Log in to comment</button>
+			</Link>
+		)
+	}
+
+	else {
+
+	
+
 	return (
 		
 			<section id='form-section'>
 				<form className='comment-form'onSubmit={(e) => handleSubmit(e)}>
-					<label htmlFor="author">Author:</label>
-					<input
-						onChange={(e) => setNewComment((currComment) => ({...currComment, author: e.target.value}))}
-						value={newComment.author}
-						name="author"
-						id="author"
-						type="text"
-						required
-					></input>
-					<label htmlFor="price">Your Comment:</label>
+					<h3>Author: {login}</h3>				
+					<label htmlFor="comment">Your Comment:</label>
 					<textarea
 						onChange={(e) => setNewComment((currComment) => ({...currComment,body: e.target.value}))}
 						value={newComment.body}
@@ -61,4 +66,5 @@ export const CommentAdder = ({ setComments, comments, review_id }) => {
 			</section>
 		
 	);
+	}
 };

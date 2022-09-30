@@ -40,3 +40,4 @@ export const getComments = (review_id) => {
 export const postComment =(newComment, review_id) => {
     return gamesApi.post(`/reviews/${review_id}/comments`, newComment)
 }
+

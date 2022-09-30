@@ -215,6 +215,18 @@ textarea {
   text-transform: capitalize;
 }
 
+#user {
+  border: none;
+}
+
+#user-img:hover {
+  cursor: pointer;
+}
+
+#logout {
+  cursor: pointer;
+}
+
 
 
 
