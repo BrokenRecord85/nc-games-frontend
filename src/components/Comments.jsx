@@ -28,14 +28,7 @@ const Comments = ({loading, setLoading}) => {
     return <h1>Loading...</h1>
   }
 
-  // if (comments === undefined) {
-  //   return (
-  //   <div className='comments-container'>
-  //     <CommentAdder setComments={setComments} comments={comments} review_id={review_id}/>
-  //     <h3>No comments yet. Add one if you'd like</h3>
-  //   </div>
-  //   )
-  // }
+  
 
   else {
 
