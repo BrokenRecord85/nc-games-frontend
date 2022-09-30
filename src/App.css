@@ -104,7 +104,7 @@ header h1 {
 .review-card {
   width: 20rem;
   border-radius: 10%;
-  border: 1px solid black;
+  border: 1px solid rgb(78, 6, 6);
 }
 
 .select-cat {
@@ -124,7 +124,7 @@ header h1 {
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  border: 1px solid black;
+  border: 1px solid rgb(78, 6, 6);
   max-width: 50rem;
   border-radius: 5%;
 }
@@ -171,8 +171,45 @@ hr {
   gap: 2rem;
 }
 
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  gap: 1rem;
+  width: 40vw;
+  text-align: left;
+  
+}
 
 
+
+input {
+  width: 20rem;
+}
+
+textarea {
+  width: 40vw;
+  height: 20vh;
+}
+
+#form-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:max-content
+}
+
+#comment-btn {
+  width: 10vw;
+  height: 5vh;
+  background-color: rgb(78, 6, 6);
+  color: white;
+  font-weight: 700;
+  border-radius: 10%;
+}
 
 #category-tag {
   text-transform: capitalize;
@@ -209,7 +246,7 @@ hr {
 
   header {
     padding: 1vh;
-    margin: 1vw;
+    
     width: auto;
   }
 
@@ -266,6 +303,18 @@ hr {
     border: none;
     
     
+  }
+  textarea {
+    width: 90vw;
+    height: 20vh;
+  }
+
+  #comment-btn {
+    width: 30vw;
+    height: 5vh;
+    background-color: rgb(78, 6, 6);
+    color: white;
+    font-weight: 700;
   }
 }
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getReviews} from '../utils/api'
 import {Link} from 'react-router-dom'
 import Categories from './Categories'
-//import Categories from './Categories'
+
 
 
 
