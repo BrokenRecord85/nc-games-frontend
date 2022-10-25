@@ -7,6 +7,9 @@ const Votes = ({votes, review_id}) => {
   
   const [currVotes, setCurrVotes] = useState(votes)
   const [hasVoted, setHasVoted] = useState(false)
+  
+  
+  
   useEffect(() => {
         setCurrVotes(votes)
   }, [votes])

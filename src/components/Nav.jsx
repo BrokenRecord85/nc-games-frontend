@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {useContext} from 'react'
 import {Link} from 'react-router-dom'
 import {FaChessPawn, FaDiceFive, FaChessBoard} from 'react-icons/fa'
 import LoginContext from '../context/LoginProvider';
 
-const Nav = () => {
+const Nav = ({setParams}) => {
   const { login,setLogin } = useContext(LoginContext)
+  const [roll, setRoll] = useState('')
 
   const handleLogout = () => {
       setLogin('')
   }
+
+  const toggleRoll = () => {
+    setRoll((currPos) => (currPos === '' ? 'dice-rotate' : '' ))
+  }
+
 
   return (
     <div className='main-nav'>
@@ -21,7 +27,7 @@ const Nav = () => {
       
       <nav className='navbar'>
         <Link to='/reviews'>
-          <h2>Reviews</h2>
+          <h2 onClick={()=> setParams({})}>Reviews</h2>
         </Link>      
         <span>
         <FaChessPawn size={29}/>
@@ -32,11 +38,11 @@ const Nav = () => {
       </nav>
 
       <div className='dice'>
-      <FaDiceFive size={29}/>
+      <FaDiceFive size={29} className={roll}/>
       {!login ? 
       <Link to='/login'>
-        <h2>Log in</h2> 
-      </Link> : <h2 id='logout' onClick={handleLogout}>{login} log out</h2>}
+        <h2 onMouseEnter={toggleRoll} onMouseLeave={toggleRoll}>Log in</h2> 
+      </Link> : <h2 id='logout' onClick={handleLogout} >{login} log out</h2>}
      
       </div>
       

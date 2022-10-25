@@ -5,8 +5,8 @@ const gamesApi = axios.create({
 }) 
 
 
-export const getReviews = (category) => {
-    return gamesApi.get('/reviews/', {params: {category}}).then((res) => {
+export const getReviews = (params) => {
+    return gamesApi.get('/reviews/', {params}).then((res) => {
         return res.data
     })
 }
@@ -41,3 +41,6 @@ export const postComment =(newComment, review_id) => {
     return gamesApi.post(`/reviews/${review_id}/comments`, newComment)
 }
 
+export const deleteComment = (comment_id) => {
+    return gamesApi.delete(`/comments/${comment_id}`)
+}

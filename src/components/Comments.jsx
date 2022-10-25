@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import {getComments} from '../utils/api'
+import React, { useEffect, useState, useContext } from 'react'
+import {getComments, deleteComment} from '../utils/api'
 import {AiOutlineLike} from 'react-icons/ai'
 import {CommentAdder} from './CommentAdder'
 import { useParams } from 'react-router'
+import LoginContext from '../context/LoginProvider';
+
 
 const Comments = ({loading, setLoading}) => {
   const {review_id} = useParams()
-  
-  
   const [comments , setComments] = useState([])
+  const [deleted, setDeleted] = useState(false)
+  const { login} = useContext(LoginContext)
   
   
  
@@ -21,7 +23,27 @@ const Comments = ({loading, setLoading}) => {
       
     })
     setLoading(false)
-  }, [review_id])
+  }, [review_id, deleted])
+
+  console.log(deleted)
+  const handleDelete = (comment_id) => {
+    setLoading(true) 
+    deleteComment(comment_id)
+    .then(() => {
+      setDeleted(true)
+      
+    })   
+    setLoading(false)
+    
+  }
+
+  useEffect(() => {
+    if(deleted) {
+        setTimeout(() => {
+            setDeleted(false)
+          }, 1000);
+    }
+  } , [deleted])
   
   
   if(loading) {
@@ -30,8 +52,20 @@ const Comments = ({loading, setLoading}) => {
 
   
 
-  else {
+ else {
 
+  
+
+  if(deleted) {
+    
+      
+      
+      return (<h2>Deleting your comment......</h2>)
+      
+   
+  }
+
+  else {
   return (
     
     <div className='comments-container'>
@@ -48,10 +82,15 @@ const Comments = ({loading, setLoading}) => {
             <h5 key={comment.comment_id}>{comment.author}</h5>
             <p>{comment.created_at}</p>
             <p>{comment.body}</p>
+            
+            
+            
             <div className='voting-container'>
               <AiOutlineLike size={20} />
               <p>Votes: {comment.votes}</p>    
             </div>
+            {login === comment.author? <button onClick={() => handleDelete(comment.comment_id)} className='delete-btn'> Delete comment</button> : <></>}
+            
           </li>
         )
       })}
@@ -61,6 +100,7 @@ const Comments = ({loading, setLoading}) => {
     
   )
   }
+ }
 }
 
 export default Comments

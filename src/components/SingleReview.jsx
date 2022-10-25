@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 import {useParams} from 'react-router-dom'
-import { getReviewByID } from '../utils/api'
+import { getReviewByID, getUsers } from '../utils/api'
 import Comments from './Comments'
 import Votes from './Votes'
 
 const SingleReview = ({loading, setLoading}) => {
    const [review, setReview] = useState({})
    const {review_id} = useParams()
+   
   
  
    useEffect(() => {
@@ -18,7 +19,20 @@ const SingleReview = ({loading, setLoading}) => {
             setLoading(false)
         })
         
+        
    }, [review_id])
+
+  //  useEffect(() => {
+  //   getUsers()
+  //   .then(({users}) => {
+  //     console.log(users)
+  //      const filteredUser = users.filter(user => user.username === review.owner)
+  //      console.log(filteredUser)
+  //      setUser(filteredUser)
+       
+  //   })
+  //  }, [review.owner])
+   
 
   if(loading) {
     return <h1>Loading...</h1>
@@ -26,19 +40,32 @@ const SingleReview = ({loading, setLoading}) => {
 
   else {
   return (
-    <div className='review-main'>
+    <>
     <div className='single-card'>
+        <div className='title-container'>
+          <h1>{review.title}</h1>
+        </div>
+        
+        <div className='single-card-header'>
+          
+          
+          <h4>Review by: {review.owner}</h4>
+          <p>Published on {review.created_at}</p>
+          
+       
+        </div>
         <img src={review.review_img_url} alt="" />
         <div className='info'>
-            <h3>{review.title}</h3>
-            <h4>Author: {review.owner}</h4>
+            
+            
             <p>{review.review_body}</p>
-            <Votes votes={review.votes} review_id={review.review_id}/>
+            
         </div>
         
     </div>
+    <Votes votes={review.votes} review_id={review.review_id}/>
     <Comments loading={loading} setLoading={setLoading} review_id={review.review_id}/>
-    </div>
+    </>
   )
   }
 }

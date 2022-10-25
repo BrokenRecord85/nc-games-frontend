@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import {BrowserRouter as Router} from 'react-router-dom'
 import { LoginProvider } from './context/LoginProvider';
+import {ThemeProvider} from './context/ThemeProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <LoginProvider>
-    <Router>
-      <App />
-    </Router>
+      <ThemeProvider>
+        <Router>
+          <App />
+        </Router>
+      </ThemeProvider>
   </LoginProvider>
   
 );

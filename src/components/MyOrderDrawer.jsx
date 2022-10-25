@@ -8,12 +8,11 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import {TbArrowsUpDown} from "react-icons/tb";
+import { FaChess } from "react-icons/fa";
 
 
 
-
-export default function TemporaryDrawer({handleSort}) {
+export default function TemporaryDrawer({handleOrder}) {
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -42,24 +41,20 @@ export default function TemporaryDrawer({handleSort}) {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <h1>Sort By</h1>
+      <h1>Order By</h1>
       <Divider />
       <List>
           <ListItem disablePadding>
-                <ListItemButton onClick={()=> handleSort('created_at')}>
-                <ListItemText primary='Date' />
+                <ListItemButton onClick={()=> handleOrder('ASC')}>
+                <ListItemText primary='Ascending' />
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-                <ListItemButton onClick={()=> handleSort('comment_count')}>
-                <ListItemText primary='Comment Count'/>
+                <ListItemButton onClick={()=> handleOrder('DESC')}>
+                <ListItemText primary='Descending'/>
                 </ListItemButton>
             </ListItem>
-            <ListItem disablePadding>
-                <ListItemButton onClick={()=> handleSort('votes')}>
-                <ListItemText primary='Votes' />
-                </ListItemButton>
-            </ListItem>
+            
        
       </List>
     </Box>
@@ -78,10 +73,12 @@ export default function TemporaryDrawer({handleSort}) {
   const anchor = 'left'
   return (
     <div className='button-box'>
-      
+
+        
+        
         <React.Fragment key={anchor}>
           <button className='sort-btn' onClick={toggleDrawer(anchor, true)}>
-          <TbArrowsUpDown/>Sort By</button>
+          <FaChess/>Order By</button>
           <Drawer
             anchor={anchor}
             open={state[anchor]}
@@ -90,7 +87,6 @@ export default function TemporaryDrawer({handleSort}) {
             {list(anchor)}
           </Drawer>
         </React.Fragment>
-        
       
     </div>
   );

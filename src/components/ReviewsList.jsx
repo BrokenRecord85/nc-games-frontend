@@ -1,30 +1,63 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { getReviews} from '../utils/api'
-import {Link} from 'react-router-dom'
+import {Link, useSearchParams} from 'react-router-dom'
 import Categories from './Categories'
 //import { Drawer, Button } from '@mui/material';
 import MyDrawer from './MyDrawer'
+import MyOrderDrawer from './MyOrderDrawer'
+import Error from './Error'
+import {FaCommentAlt} from "react-icons/fa"
+import {AiTwotoneLike} from 'react-icons/ai'
 
 
 
 
-const ReviewsList = ({loading, setLoading}) => {
+const ReviewsList = ({loading, setLoading, params, setParams, error, setError}) => {
   const [reviews, setReviews] = useState([])
-  const [showDrawer, setShowDrawer] = useState(false)
+  
+
+
+  
+  
+  
+  
   
 
   useEffect(() => {
     setLoading(true)
-    getReviews().then(({reviews}) => {
+    
+    getReviews(params).then(({reviews}) => {
       setReviews(reviews)
       setLoading(false)
     })
-  }, [])
-  
+    .catch((err) => {
+      setLoading(false)
+      setError(true)
+    })
+    
+  }, [params])
 
-  const handleDrawer = () => {
-    setShowDrawer(true)
+  
+  console.log(params)
+
+  if(error) {
+    return <Error />
   }
+  
+  
+  const handleSort = (column) => {
+    setParams((currParams) => {
+      return {...currParams, sort_by: column}
+    })
+  }
+
+  const handleOrder = (order) => {
+    setParams((currParams) => {
+      return {...currParams, order: order}
+    })
+  }
+  
+  
 
   if(loading) {
     return <h1>Loading...</h1>
@@ -32,48 +65,50 @@ const ReviewsList = ({loading, setLoading}) => {
   
   else {
 
-    // if(!showDrawer) {
-    //   //const anchor = 'left'
-    //     // <React.Fragment key={anchor}>
-    //     //   <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-    //     //   <Drawer
-    //     //     anchor={anchor}
-    //     //     open={state[anchor]}
-    //     //     onClose={toggleDrawer(anchor, false)}
-    //     //   >
-    //     //     {list(anchor)}
-    //     //   </Drawer>
-    //     // </React.Fragment>
-    //   <MyDrawer/>
-    // }
+    
     
 
       return (
         <main>
-          <MyDrawer/>
+          <div className='drawers-box'>
+            <MyDrawer handleSort={handleSort}/>
+            <MyOrderDrawer handleOrder={handleOrder}/>
+          </div>
+          
           <Categories />
-          <button onClick={handleDrawer}>Sort By</button>
+          
           <ul className='gallery'>
             {reviews.map((review) => {
               return (
                 <li className='review-card' key={review.review_id}>
-                  <Link to={`/reviews/${review.review_id}`}>
-                    <h3>{review.title}</h3>
-                  </Link>
+                 
                   <Link to={`/reviews/${review.review_id}`}>
                   <img src={review.review_img_url} alt={review.title} />
                   </Link>
+                  <div className='info-card'>
                   <Link to={`/reviews/${review.review_id}`}>
-                      <h4>Read review</h4>
-                    </Link> 
-                  
-                  
-                  <p>Owner: {review.owner}</p>
-                  <p>Designer: {review.designer}</p>
-                  <Link to={`/reviews/categories/${review.category}`}>
-                      <p id='category-tag'>category: {review.category}</p>
+                    <h3><span>Review |</span> {review.title}</h3>
                   </Link>
+                  <div className='info-box'>
+                    <div className='votes-box'>
+                      <AiTwotoneLike/>
+                      <p>{review.votes} votes</p>
+                    </div>
+                    
+                    <div className='comments-box'>
+                    <FaCommentAlt/> 
+                    <p>{review.comment_count} comments</p>
+                    </div>
+                  </div>
+                 
                   
+                  
+                  </div>
+                  <div className='category-box'>
+                    <Link to={`/reviews/categories/${review.category}`}>
+                        <p id='category-tag'>{review.category}</p>
+                    </Link>
+                  </div>
                 </li>         
               )
             })}
@@ -87,3 +122,11 @@ const ReviewsList = ({loading, setLoading}) => {
 }
 
 export default ReviewsList
+
+
+{/* <Link to={`/reviews/${review.review_id}`}>
+                      <h4>Read review</h4>
+                    </Link>  */}
+                  {/* <p>Owner: {review.owner}</p>
+                  <p>Designer: {review.designer}</p> */}
+                  {/* <p>Date: {review.created_at}</p> */}
