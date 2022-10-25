@@ -22,17 +22,7 @@ const SingleReview = ({loading, setLoading}) => {
         
    }, [review_id])
 
-  //  useEffect(() => {
-  //   getUsers()
-  //   .then(({users}) => {
-  //     console.log(users)
-  //      const filteredUser = users.filter(user => user.username === review.owner)
-  //      console.log(filteredUser)
-  //      setUser(filteredUser)
-       
-  //   })
-  //  }, [review.owner])
-   
+  
 
   if(loading) {
     return <h1>Loading...</h1>
@@ -44,6 +34,7 @@ const SingleReview = ({loading, setLoading}) => {
     <div className='single-card'>
         <div className='title-container'>
           <h1>{review.title}</h1>
+          <hr />
         </div>
         
         <div className='single-card-header'>

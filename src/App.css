@@ -51,6 +51,10 @@ a {
   background: #202634;
 }
 
+#dark .category-box {
+  background: #4d5061;
+}
+
 ul {
   margin-bottom:2rem;
   list-style-type: none;
@@ -77,16 +81,7 @@ img {
   /* border-radius: 20px; */
 }
 
-.info-card {
-  width: 18rem;
-  position: absolute;
-  background-color: white;
-  right: 10%;
-  bottom: 1%;
-  gap: 2rem;
 
-  
-}
 
 .review-card {
   width: 20rem;
@@ -115,8 +110,11 @@ select {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
   font-size: 1rem;
   padding: 1em 1.5em;
-  
   border: 0;
+}
+
+option {
+  color: white;
 }
 
 button {
@@ -275,16 +273,24 @@ main {
   justify-content: center;
   align-items: center;
   gap: 5rem;
+  width: 100%;
   /* border: 1px solid rgb(78, 6, 6); */
   max-width: 50rem;
   /* border-radius: 5%; */
+  text-align: left;
 }
 
 .single-card-header {
   display: flex;
-  flex-direction: row;
-  justify-content: left;
+  flex-direction: column;
+  justify-content: flex-start;
   margin-left: 0;
+  text-align: left;
+ 
+}
+
+.title-container {
+  font-size: 1.5rem;
 }
 
 /* .single-card-header img {
@@ -295,11 +301,13 @@ main {
 
 .single-card p {
   width: 45ch;
+ 
 }
 
-/* .single-card img {
+.single-card img {
   width: 100%;
-} */
+  height: 50%;
+}
 
 .info {
   margin-top: 0;
@@ -310,11 +318,26 @@ main {
   align-items: center;
   max-width: 30rem;
   padding-bottom: 2rem;
+  text-align: left;
   
 }
 
 .info p {
   text-align:left;
+}
+
+.info-card {
+  padding-top: 1rem;
+  width: 18rem;
+  height: 7rem;
+  position: absolute;
+  background-color: white;
+  right: 5%;
+  bottom: 5%;
+  gap: 3rem;
+  box-shadow:  -2px -2px 10px #ffffff73,
+     5px 5px 10px rgba(0, 0, 0, 0.568);
+  
 }
 
 
@@ -325,15 +348,24 @@ main {
   padding-bottom: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  gap: 3rem;
+  margin-top: 1rem;
+  
+
 }
+
+.info-box h3 {
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+
 
 .voting-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .comments-container {
@@ -423,6 +455,14 @@ textarea {
   cursor: pointer;
 }
 
+.category-box {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  background: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
 
 
 
@@ -593,7 +633,7 @@ textarea {
   }
 
   .single-card img {
-    width: 24rem;
+    width: 100%;
     border: none;
     border-radius: none;
     
@@ -604,7 +644,11 @@ textarea {
   }
 
   .single-card p {
-    width: 40ch;
+    width: 100%;
+  }
+
+  .single-card hr {
+    width: 80%;
   }
 
   .single-card-header {
