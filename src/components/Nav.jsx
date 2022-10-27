@@ -21,7 +21,7 @@ const Nav = ({setParams}) => {
     <div className='main-nav'>
       <div className='logo'>
         <FaChessBoard size={29}/>
-        <h2>NC-GAMES</h2>
+        <h2>BRD-GAMES</h2>
       </div>
       
       

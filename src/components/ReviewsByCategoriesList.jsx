@@ -45,14 +45,14 @@ const ReviewsByCategoriesList = ({loading, setLoading, params, setParams }) => {
 
   else {
 
-
+    console.log(category)
   return (
     <main>
       <div className='drawers-box'>
             <MyDrawer handleSort={handleCategorySort}/>
             <MyOrderDrawer handleOrder={handleCategoryOrder}/>
       </div>
-      <Categories />
+      <Categories setParams={setParams}/>
       <h2>{category[0].toUpperCase() + category.slice(1)}</h2>
       <ul className='gallery'>
           {reviewsByCategory.map((reviewByCategory) => {

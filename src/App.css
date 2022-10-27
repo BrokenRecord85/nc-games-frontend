@@ -9,9 +9,11 @@
   
 }
 
-#light {
+
+
+/* #light {
   color: rgb(78, 6, 6);
-}
+} */
 
 #dark {
   background-color: #202634;
@@ -40,7 +42,7 @@
 
 a {
   text-decoration: none;
-  color: rgb(78, 6, 6);
+  color: black;
 }
 
 #dark a {
@@ -94,28 +96,41 @@ img {
 
 
 header {
+  
   padding-top: 1rem;
   padding-bottom: 1rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column; 
+  justify-content: center; 
   align-items: center;
   background-color: rgb(78, 6, 6);
   width: 100%;
+  color: white;
   
+  
+}
+
+.switch { 
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
   
 }
 
 select {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
   font-size: 1rem;
-  padding: 1em 1.5em;
-  border: 0;
+  font-weight: 600;
+  /* padding: 1em 1.5em; */
+  border: 0; 
+  
 }
 
 option {
-  color: white;
+  font-size: 1rem;
+  font-weight: 600;
 }
+
 
 button {
   height: 2rem;
@@ -220,6 +235,7 @@ main {
 }
 
 .gallery {
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 5vh;
@@ -232,7 +248,7 @@ main {
   background-color: white;
   border: none;
   border-radius: 10px;
-  font-size: medium;
+  font-size: 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -265,14 +281,12 @@ main {
 }
 
 .single-card {
-  /* padding: 5vh; */
-  /* margin: 10vh; */
-  /* margin: 2rem; */
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5rem;
+  justify-content:  center;
+  align-items: left;
+  gap: 2rem;
   width: 100%;
   /* border: 1px solid rgb(78, 6, 6); */
   max-width: 50rem;
@@ -282,22 +296,28 @@ main {
 
 .single-card-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   margin-left: 0;
   text-align: left;
+  gap: 1rem;
  
+}
+
+.single-card hr {
+  width: 80%;
 }
 
 .title-container {
   font-size: 1.5rem;
+  width: 100%;
 }
 
-/* .single-card-header img {
+#profile-pic {
   border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
-} */
+  width: 3rem;
+  height: 3rem;
+} 
 
 .single-card p {
   width: 45ch;
@@ -310,20 +330,47 @@ main {
 }
 
 .info {
+  
+  width: 100%;
   margin-top: 0;
   margin-bottom: 1rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center; 
+  flex-direction: row-reverse;
+  justify-content: space-between; 
   align-items: center;
-  max-width: 30rem;
+ 
   padding-bottom: 2rem;
   text-align: left;
   
 }
 
+
+
+.info ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items:flex-start;
+  gap: 2rem;
+  text-align: left;
+  margin-right: 2rem;
+  
+}
+
+.info li {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.info span {
+  font-weight: 900;
+}
+
 .info p {
   text-align:left;
+  font-size: 1.5rem;
+  width: 30ch;
 }
 
 .info-card {
@@ -362,14 +409,17 @@ main {
 
 .voting-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  font-size: 2rem;
 }
 
 .comments-container {
-  
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -378,7 +428,7 @@ main {
   margin-bottom: 3rem;
 }
 
-hr {
+.comments-container hr {
   width: 10rem;
 }
 
@@ -390,7 +440,18 @@ hr {
   align-items: center;
   padding: 0;
   gap: 2rem;
+  width: auto;
 }
+
+.comments-container li {
+  width: 100%;
+}
+
+.comments-container p {
+  width: 100%;
+}
+
+
 
 .comment-form {
   display: flex;
@@ -501,15 +562,19 @@ textarea {
     align-items: center;
   }
 
-  /* header {
-   width: 100%;
-   padding-left: 1em;
-   padding-right: 1em;
-  } */
+ 
+  
 
-  header h1 {
-    width: 15ch;
+  .switch { 
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
     
+  }
+
+  .switch p {
+    display: flex;
+    flex-direction: column;
   }
 
   .title-container {
@@ -521,21 +586,6 @@ textarea {
     width: 100%;
   }
   
-  /* header {
-    
-    margin-right: 1rem; 
-    margin-left: 1rem;
-    padding-left:  2rem;
-    text-align: center;
-     width: 100%;
-  } */
-
-  /* header a {
-    text-align: center;
-    width: 100%;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  } */
 
   .App {
     padding: 0;
@@ -591,7 +641,7 @@ textarea {
   
     justify-content: space-between;
     gap: 3rem;
-    border: 2px solid rgb(78, 6, 6)
+    /* border: 2px solid rgb(78, 6, 6) */
   }
 
   .button-box button {
@@ -604,6 +654,7 @@ textarea {
     justify-content: center;
     align-items: center;
     gap: 5vh;
+    
   }
 
   .review-main {
@@ -616,32 +667,35 @@ textarea {
 
   .single-card {
     /* width: auto; */
-    padding: 0;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
-    align-items: center;
+    /* align-items: center; */
     gap: 1rem;
     border: none;
     text-align: left;
-    color: black;
-    margin-right: 1rem;
+    /* margin-right: 1rem;
     margin-left: 1rem;
-    
+    padding-left: 1rem;
+    padding-right: 1rem; */
+    padding: 1rem
     
   }
 
   .single-card img {
-    width: 100%;
+    /* width: 100%; */
     border: none;
     border-radius: none;
     
   }
 
-  .single-card h1 {
-    width: 15ch;
+  .info {
+    flex-direction: column-reverse;
+    gap: 1rem;
   }
+  
 
   .single-card p {
     width: 100%;
@@ -653,7 +707,8 @@ textarea {
 
   .single-card-header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     width: 100%;
   }
 

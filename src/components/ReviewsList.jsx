@@ -59,7 +59,7 @@ const ReviewsList = ({loading, setLoading, params, setParams, error, setError}) 
   }
   
   
-
+  console.log(reviews)
   if(loading) {
     return <h1>Loading...</h1>
   }

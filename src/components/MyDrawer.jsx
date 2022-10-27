@@ -9,11 +9,16 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import {TbArrowsUpDown} from "react-icons/tb";
+import { Paper } from '@mui/material';
+
+
+
 
 
 
 
 export default function TemporaryDrawer({handleSort}) {
+  // const classes = useStyles();
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -37,14 +42,14 @@ export default function TemporaryDrawer({handleSort}) {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250}}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <h1>Sort By</h1>
       <Divider />
-      <List>
+      <List >
           <ListItem disablePadding>
                 <ListItemButton onClick={()=> handleSort('created_at')}>
                 <ListItemText primary='Date' />
@@ -81,11 +86,13 @@ export default function TemporaryDrawer({handleSort}) {
       
         <React.Fragment key={anchor}>
           <button className='sort-btn' onClick={toggleDrawer(anchor, true)}>
-          <TbArrowsUpDown/>Sort By</button>
+          <TbArrowsUpDown />Sort By</button>
           <Drawer
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
+            //  classes={{ paper: classes.paper }}
+           
           >
             {list(anchor)}
           </Drawer>

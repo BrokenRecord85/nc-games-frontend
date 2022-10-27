@@ -23,6 +23,12 @@ export const getUsers = () => {
     })
 }
 
+export const getUserByID = (username) => {
+    return gamesApi.get(`/users/${username}`).then((res) => {
+        return res.data
+    })
+}
+
 export const getCategories = () => {
     return gamesApi.get('/categories').then((res) => {
         return res.data

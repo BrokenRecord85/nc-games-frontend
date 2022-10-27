@@ -2,10 +2,12 @@ import React from 'react'
 import {useState, useContext, useEffect} from 'react'
 import LoginContext from '../context/LoginProvider';
 import {getUsers} from '../utils/api'
+import { useNavigate} from 'react-router-dom'
 
 const Login = () => {
     const { login,setLogin } = useContext(LoginContext)
     const [users, setUsers] = useState([])
+    const navigate = useNavigate()
     
     useEffect(() => {
         getUsers()
@@ -18,7 +20,7 @@ const Login = () => {
         
         console.log(e.target.alt)
         setLogin(e.target.alt)
-        
+        navigate(-1)
     }
     
   return (

@@ -87,7 +87,7 @@ const Comments = ({loading, setLoading}) => {
             
             <div className='voting-container'>
               <AiOutlineLike size={20} />
-              <p>Votes: {comment.votes}</p>    
+              <p>{comment.votes} votes</p>    
             </div>
             {login === comment.author? <button onClick={() => handleDelete(comment.comment_id)} className='delete-btn'> Delete comment</button> : <></>}
             
