@@ -83,7 +83,7 @@ const SingleReview = ({loading, setLoading}) => {
             <ul>
               <li id='category-tag'><span>Category:</span> {review.category}</li>
               <li><span>Owner:</span> {review.designer}</li>
-              <li><span>Reviewed by:</span> {review.owner}</li>
+              <li><span>Reviewer</span> {review.owner}</li>
             </ul> 
             
             <p>{review.review_body}</p>
