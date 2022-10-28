@@ -1,19 +1,19 @@
 import React from 'react'
-import {useState, useContext, useEffect} from 'react'
-import LoginContext from '../context/LoginProvider';
+import {useState, useEffect} from 'react'
 import {getUsers} from '../utils/api'
-import { Link, useNavigate} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const UsersList = () => {
     
     const [users, setUsers] = useState([])
-    const navigate = useNavigate()
+    
     
     useEffect(() => {
         getUsers()
         .then((data) => {
             setUsers(data.users)
         })
+        
     },[])
 
     

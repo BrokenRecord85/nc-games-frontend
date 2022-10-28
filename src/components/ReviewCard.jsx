@@ -34,7 +34,7 @@ const ReviewCard = ({review}) => {
                         <p id='category-tag'>{review.category}</p>
                     </Link>
                   </div>
-                </li>         
+            </li>         
   )
 }
 

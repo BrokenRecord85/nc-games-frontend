@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import {useParams} from 'react-router-dom'
+import {useNavigate, useParams} from 'react-router-dom'
 import { getUserByID } from '../utils/api'
 
 const User = () => {
+    const navigate = useNavigate()
     const {username} = useParams()
     const [user, setUser] = useState({})
     
@@ -12,7 +13,10 @@ const User = () => {
           
           setUser(user)
         })
-   }, [])
+        .catch((err) => {
+          navigate('*')
+        })
+   }, [username])
    
   return (
     <div className='user-profile'>

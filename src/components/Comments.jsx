@@ -57,56 +57,51 @@ const Comments = ({loading, setLoading}) => {
 
   
 
-  if(deleted) {
-    
-      
-      
-      return (<h2 id='deleting'>Deleting your comment......</h2>)
-      
-   
+  if(deleted) {     
+    return (<h2 id='deleting'>Deleting your comment......</h2>)  
   }
 
   
 
   else {
-  return (
-    
-    <div className='comments-container'>
-      <CommentAdder setComments={setComments} comments={comments} review_id={review_id}/>
+    return (
       
-      <h3>Comments:</h3>
-      {comments.length === 0 ? <h3>No comments yet. Add one if you'd like</h3> :
-      <ul>
-      {comments.map((comment, index) => {
-        const dateFormat = new Date(comment.created_at)
+      <div className='comments-container'>
+        <CommentAdder setComments={setComments} comments={comments} review_id={review_id}/>
         
-        const date =`${dateFormat.getDate()}/${dateFormat.getMonth()+1}/${dateFormat.getFullYear()}
-        at ${dateFormat.getHours()}:${dateFormat.getMinutes()}`
-        
-        return (
+        <h3>Comments:</h3>
+        {comments.length === 0 ? <h3>No comments yet. Add one if you'd like</h3> :
+        <ul>
+        {comments.map((comment, index) => {
+          const dateFormat = new Date(comment.created_at)
           
-          <li key={index}>
-            <hr />
-            <h5 key={comment.comment_id}>{comment.author}</h5>
-            <p>{date}</p>
-            <p>{comment.body}</p>
+          const date =`${dateFormat.getDate()}/${dateFormat.getMonth()+1}/${dateFormat.getFullYear()}
+          at ${dateFormat.getHours()}:${dateFormat.getMinutes()}`
+          
+          return (
             
-            
-            
-            <div className='voting-container'>
-              <AiOutlineLike size={20} />
-              <p>{comment.votes} votes</p>    
-            </div>
-            {login === comment.author? <button onClick={() => handleDelete(comment.comment_id)} className='delete-btn'> Delete comment</button> : <></>}
-            
-          </li>
-        )
-      })}
-     
-      </ul>}
-    </div>
-    
-  )
+            <li key={index}>
+              <hr />
+              <h5 key={comment.comment_id}>{comment.author}</h5>
+              <p>{date}</p>
+              <p>{comment.body}</p>
+              
+              
+              
+              <div className='voting-container'>
+                <AiOutlineLike size={20} />
+                <p>{comment.votes} votes</p>    
+              </div>
+              {login === comment.author? <button onClick={() => handleDelete(comment.comment_id)} className='delete-btn'> Delete comment</button> : <></>}
+              
+            </li>
+          )
+        })}
+      
+        </ul>}
+      </div>
+      
+    )
   }
  }
 }

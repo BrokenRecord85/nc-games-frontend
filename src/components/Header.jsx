@@ -6,11 +6,11 @@ import Switch from '@mui/material/Switch'
 import {FaSun, FaMoon} from "react-icons/fa"
 
 const Header = ({toggleTheme}) => {
-  const { theme,setTheme } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
   return (
     <header className='header'>
       <Link to='/'>
-        <h1>We play them all so you don't have to!!</h1>
+        <h1>We play them all so you don't have to</h1>
       </Link>
       <div className='switch'>
         {theme === 'dark'?  <FaSun/> : <FaMoon/>}

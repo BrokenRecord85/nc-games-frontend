@@ -256,14 +256,24 @@ main {
 }
 
 .error-container {
+  margin-top: 2rem;
+  margin-bottom: 5rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .error-container img {
-  width: 20rem;
-  height: 30rem;
+  position: relative;
+  width: 70rem;
+  height: 40rem;
+}
+
+.error-container h1 {
+  position: absolute;
+  bottom: 20%;
 }
 
 
@@ -399,7 +409,7 @@ main {
 
 .info-box h3 {
   margin-top: 2rem;
-  padding: 1rem;
+  padding: 1rem; 
 }
 .voting-container {
   display: flex;

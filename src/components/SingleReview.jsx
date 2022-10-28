@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Suspense } from 'react'
-import {useParams} from 'react-router-dom'
+import {useNavigate, useParams} from 'react-router-dom'
 import { getReviewByID, getUserByID, getUsers } from '../utils/api'
 import Comments from './Comments'
 import Votes from './Votes'
@@ -9,10 +9,11 @@ import Votes from './Votes'
 
 
 const SingleReview = ({loading, setLoading}) => {
+   const navigate = useNavigate()
    const [review, setReview] = useState({})
    const [user, setUser] = useState({})
    const {review_id} = useParams()
-   const viewport_width = window.innerWidth;
+  
   
  
    useEffect(() => {
@@ -22,6 +23,9 @@ const SingleReview = ({loading, setLoading}) => {
           
             setReview(review)
             setLoading(false)
+        })
+        .catch((err) => {
+          navigate('*')
         })
         
         

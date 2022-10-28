@@ -1,13 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getReviews} from '../utils/api'
-import {Link, useSearchParams} from 'react-router-dom'
 import Categories from './Categories'
-//import { Drawer, Button } from '@mui/material';
 import MyDrawer from './MyDrawer'
 import MyOrderDrawer from './MyOrderDrawer'
 import Error from './Error'
-import {FaCommentAlt} from "react-icons/fa"
-import {AiTwotoneLike} from 'react-icons/ai'
 import ReviewCard from './ReviewCard'
 
 
@@ -97,9 +93,3 @@ const ReviewsList = ({loading, setLoading, params, setParams, error, setError}) 
 export default ReviewsList
 
 
-{/* <Link to={`/reviews/${review.review_id}`}>
-                      <h4>Read review</h4>
-                    </Link>  */}
-                  {/* <p>Owner: {review.owner}</p>
-                  <p>Designer: {review.designer}</p> */}
-                  {/* <p>Date: {review.created_at}</p> */}
