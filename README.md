@@ -8,7 +8,7 @@ back end project: [Back-end API project](https://github.com/BrokenRecord85/first
 
 ## Hosted App:
 
-[You can find the hosted version of the App here]()
+[You can find the hosted version of the App here](https://radiant-mousse-b52cfa.netlify.app)
 
 ## Dev-Dependencies:
 - [React Icons](https://react-icons.github.io/react-icons/)
