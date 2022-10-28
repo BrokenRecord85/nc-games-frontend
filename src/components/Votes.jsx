@@ -42,7 +42,7 @@ const Votes = ({votes, review_id}) => {
   }
 
   return (
-    <div className='voting-container' id='review-votes'>
+    <div className='voting-container' >
       {!hasVoted ? <AiOutlineLike size={32} onClick={handleVote}/> : <AiTwotoneLike size={32} onClick={handleVote}/>}  
     <p>{currVotes} votes</p>    
     </div>
