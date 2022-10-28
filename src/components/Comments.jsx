@@ -25,7 +25,7 @@ const Comments = ({loading, setLoading}) => {
     setLoading(false)
   }, [review_id, deleted])
 
-  console.log(deleted)
+  
   const handleDelete = (comment_id) => {
     setLoading(true) 
     deleteComment(comment_id)
@@ -44,6 +44,7 @@ const Comments = ({loading, setLoading}) => {
           }, 1000);
     }
   } , [deleted])
+
   
   
   if(loading) {
@@ -60,10 +61,12 @@ const Comments = ({loading, setLoading}) => {
     
       
       
-      return (<h2>Deleting your comment......</h2>)
+      return (<h2 id='deleting'>Deleting your comment......</h2>)
       
    
   }
+
+  
 
   else {
   return (
@@ -75,12 +78,17 @@ const Comments = ({loading, setLoading}) => {
       {comments.length === 0 ? <h3>No comments yet. Add one if you'd like</h3> :
       <ul>
       {comments.map((comment, index) => {
+        const dateFormat = new Date(comment.created_at)
+        
+        const date =`${dateFormat.getDate()}/${dateFormat.getMonth()+1}/${dateFormat.getFullYear()}
+        at ${dateFormat.getHours()}:${dateFormat.getMinutes()}`
+        
         return (
           
           <li key={index}>
             <hr />
             <h5 key={comment.comment_id}>{comment.author}</h5>
-            <p>{comment.created_at}</p>
+            <p>{date}</p>
             <p>{comment.body}</p>
             
             

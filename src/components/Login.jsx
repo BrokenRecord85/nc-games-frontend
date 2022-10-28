@@ -17,10 +17,8 @@ const Login = () => {
     },[])
 
     const handleClick = (e) => {
-        
-        console.log(e.target.alt)
         setLogin(e.target.alt)
-        navigate(-1)
+        navigate('/')
     }
     
   return (
@@ -31,7 +29,7 @@ const Login = () => {
           return (
             <li className='review-card'id='user' key={user.username}>
                 <h3>{user.username}</h3>
-                {!login ? <img src={user.avatar_url} alt={user.username} id='user-img' onClick={(e) => handleClick(e)} value={user.username}/> :  <img src={user.avatar_url} alt={user.username} />}  
+                {!login ? <img src={user.avatar_url} alt={user.username} id='profile-pic' onClick={(e) => handleClick(e)} value={user.username}/> :  <img src={user.avatar_url} alt={user.username} />}  
                 
                 <p>{user.name}</p>
             </li>         

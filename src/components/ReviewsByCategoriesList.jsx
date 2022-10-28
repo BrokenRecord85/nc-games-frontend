@@ -45,7 +45,7 @@ const ReviewsByCategoriesList = ({loading, setLoading, params, setParams }) => {
 
   else {
 
-    console.log(category)
+    
   return (
     <main>
       <div className='drawers-box'>
@@ -58,7 +58,7 @@ const ReviewsByCategoriesList = ({loading, setLoading, params, setParams }) => {
           {reviewsByCategory.map((reviewByCategory) => {
             
             return (
-              <ReviewCard review={reviewByCategory}/>
+              <ReviewCard review={reviewByCategory} key={reviewByCategory.review_id} />
               
             )
           })}

@@ -32,7 +32,7 @@ const Categories = ({setParams}) => {
     }
     
   }
-  console.log(selectedCategory)
+  
   return (
     <select className='select-cat' onChange={handleChange} value={selectedCategory} placeholder='Select category'  name="categoriesList" id="categories-list">
         <option value='' disabled defaultValue>Select category: </option>

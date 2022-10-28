@@ -19,11 +19,12 @@ const Nav = ({setParams}) => {
 
   return (
     <div className='main-nav'>
-      <div className='logo'>
-        <FaChessBoard size={29}/>
-        <h2>BRD-GAMES</h2>
-      </div>
-      
+      <Link to='/'>
+        <div className='logo'>
+          <FaChessBoard size={29}/>
+          <h2>BRD-GAMES</h2>
+        </div>
+      </Link>
       
       <nav className='navbar'>
         <Link to='/reviews'>

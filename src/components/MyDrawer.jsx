@@ -91,7 +91,7 @@ export default function TemporaryDrawer({handleSort}) {
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
-            //  classes={{ paper: classes.paper }}
+            
            
           >
             {list(anchor)}

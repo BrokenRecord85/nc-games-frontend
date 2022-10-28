@@ -39,7 +39,7 @@ const ReviewsList = ({loading, setLoading, params, setParams, error, setError}) 
   }, [params])
 
   
-  console.log(params)
+  
 
   if(error) {
     return <Error />
@@ -59,7 +59,7 @@ const ReviewsList = ({loading, setLoading, params, setParams, error, setError}) 
   }
   
   
-  console.log(reviews)
+  
   if(loading) {
     return <h1>Loading...</h1>
   }
@@ -81,37 +81,8 @@ const ReviewsList = ({loading, setLoading, params, setParams, error, setError}) 
           <ul className='gallery'>
             {reviews.map((review) => {
               return (
-                <ReviewCard review={review}/>
-                // <li className='review-card' key={review.review_id}>
-                 
-                //   <Link to={`/reviews/${review.review_id}`}>
-                //   <img src={review.review_img_url} alt={review.title} />
-                //   </Link>
-                //   <div className='info-card'>
-                //   <Link to={`/reviews/${review.review_id}`}>
-                //     <h3><span>Review |</span> {review.title}</h3>
-                //   </Link>
-                //   <div className='info-box'>
-                //     <div className='votes-box'>
-                //       <AiTwotoneLike/>
-                //       <p>{review.votes} votes</p>
-                //     </div>
-                    
-                //     <div className='comments-box'>
-                //     <FaCommentAlt/> 
-                //     <p>{review.comment_count} comments</p>
-                //     </div>
-                //   </div>
-                 
-                  
-                  
-                //   </div>
-                //   <div className='category-box'>
-                //     <Link to={`/reviews/categories/${review.category}`}>
-                //         <p id='category-tag'>{review.category}</p>
-                //     </Link>
-                //   </div>
-                // </li>         
+                <ReviewCard review={review} key={review.review_id} />
+                
               )
             })}
           </ul>

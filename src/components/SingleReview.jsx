@@ -13,7 +13,7 @@ const SingleReview = ({loading, setLoading}) => {
    const [user, setUser] = useState({})
    const {review_id} = useParams()
    const viewport_width = window.innerWidth;
-   console.log(viewport_width)
+  
  
    useEffect(() => {
     setLoading(true)
@@ -28,11 +28,20 @@ const SingleReview = ({loading, setLoading}) => {
    }, [review_id])
 
    useEffect(()=> {
-        getUserByID(review.owner)
-        .then(({user}) => {
-          console.log(user)
-          setUser(user)
-        })
+        if (review.owner === undefined) {
+          console.log('Waiting for user data...')
+        }
+        else {
+          getUserByID(review.owner)
+          .then(({user}) => {
+            setUser(user)
+          
+          })
+          .catch((err) => {
+            console.log('Waiting for user data...');
+          })
+        }
+        
    }, [review])
   
   const dateFormat = new Date(review.created_at)
@@ -66,12 +75,12 @@ const SingleReview = ({loading, setLoading}) => {
         </div>
         <img src={review.review_img_url} alt="" />
         <div className='info'>
-            {viewport_width > 1000 ?
+            
             <ul>
-            <li><span>Category:</span> {review.category}</li>
-            <li><span>Owner:</span> {review.designer}</li>
-            <li><span>Reviewed by:</span> {review.owner}</li>
-          </ul> : <></>}
+              <li id='category-tag'><span>Category:</span> {review.category}</li>
+              <li><span>Owner:</span> {review.designer}</li>
+              <li><span>Reviewed by:</span> {review.owner}</li>
+            </ul> 
             
             <p>{review.review_body}</p>
             

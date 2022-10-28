@@ -5,7 +5,7 @@ import {FaCommentAlt} from "react-icons/fa"
 
 const ReviewCard = ({review}) => {
   return (
-            <li className='review-card' key={review.review_id}>
+            <li className='review-card' >
                  
                   <Link to={`/reviews/${review.review_id}`}>
                   <img src={review.review_img_url} alt={review.title} />

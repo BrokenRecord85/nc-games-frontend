@@ -10,6 +10,7 @@ import UsersList from './components/UsersList'
 import ReviewsByCategoriesList from './components/ReviewsByCategoriesList';
 import SingleReview from './components/SingleReview';
 import Login from './components/Login';
+import User from './components/User'
 
 import ThemeContext from './context/ThemeProvider';
 
@@ -48,8 +49,9 @@ function App() {
         <Route path='/reviews' element={<ReviewsList loading={loading} setLoading={setLoading} params={params} setParams={setParams}/>}></Route>
         <Route path='reviews/:review_id' element={<SingleReview setLoading={setLoading} loading={loading} error={error} setError={setError}/>}></Route>
         <Route path='reviews/categories/:category' element={<ReviewsByCategoriesList loading={loading} setLoading={setLoading} params={params} setParams={setParams}/>}></Route>
-        
+     
         <Route path='/users' element={<UsersList/>}></Route>
+        <Route path='/users/:username' element={<User/>}></Route>
       </Routes>
       
     </div>
