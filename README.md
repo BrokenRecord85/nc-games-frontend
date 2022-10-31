@@ -8,7 +8,7 @@ back end project: [Back-end API project](https://github.com/BrokenRecord85/first
 
 ## Hosted App:
 
-[You can find the hosted version of the App here](https://radiant-mousse-b52cfa.netlify.app)
+You can find the hosted version of the App [here](https://radiant-mousse-b52cfa.netlify.app)
 
 ## Dev-Dependencies:
 - [React Icons](https://react-icons.github.io/react-icons/)
@@ -32,8 +32,7 @@ back end project: [Back-end API project](https://github.com/BrokenRecord85/first
     
 The app should open in your browser on http://localhost:3000/
 
-When checking mobile mode Firefox browser is recommended as output in other browsers can inconsistent 
-and may require multiple refresh 
+When checking mobile mode Firefox browser is recommended as output in other browsers can be inconsistent and may require multiple refreshes 
 
 
 
